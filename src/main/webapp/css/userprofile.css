@@ -1,0 +1,112 @@
+/* Profile Container */
+.profile-container {
+  max-width: 640px;
+  margin: 80px auto;
+  padding: 40px;
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--haze);
+}
+
+.profile-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--depth);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* Profile View */
+#profileView p {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--depth);
+}
+
+#profileView button {
+  display: block;
+  margin: 24px auto 0;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: var(--lagoon);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#profileView button:hover {
+  background-color: #5e97a3;
+}
+
+/* Edit Form Styling */
+#profileForm {
+  margin-top: 30px;
+}
+
+#profileForm label {
+  display: block;
+  font-weight: 600;
+  margin: 16px 0 6px;
+  color: var(--depth);
+}
+
+#profileForm input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  background-color: var(--mist);
+  border: 1px solid var(--haze);
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#profileForm input:focus {
+  border-color: var(--lagoon);
+  background-color: var(--white);
+}
+
+/* Action Buttons */
+.form-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  background-color: var(--lagoon);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-actions button:hover {
+  background-color: #5e97a3;
+}
+
+/* Danger Button (Delete Account) */
+.danger-btn {
+  background-color: #e74c3c;
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.danger-btn:hover {
+  background-color: #c0392b;
+}

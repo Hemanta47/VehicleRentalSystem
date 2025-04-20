@@ -1,0 +1,124 @@
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--mist);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--lagoon), var(--depth));
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    header a:hover {
+      opacity: 0.9;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 1rem;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 400px;
+      transition: all 0.3s ease;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: var(--depth);
+      margin-bottom: 1.8rem;
+      font-size: 1.7rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 0.9rem 1rem;
+      margin-bottom: 1.2rem;
+      border: 2px solid var(--haze);
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: var(--lagoon);
+      outline: none;
+    }
+
+    input[type="submit"] {
+      padding: 0.9rem;
+      background-color: var(--depth);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0d3648;
+      transform: scale(1.03);
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .form-footer a {
+      color: var(--lagoon);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .extra-links {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+    }
+
+    .extra-links a {
+      color: var(--drift);
+    }
+    
+    .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+    
