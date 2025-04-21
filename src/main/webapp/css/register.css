@@ -65,6 +65,7 @@ form {
 	max-width: calc(50% - 0.5rem);
 	display: flex;
 	flex-direction: column;
+	position: relative;
 }
 
 label {
@@ -83,6 +84,15 @@ input, select {
 	color: var(--depth);
 	font-size: 1rem;
 	transition: border-color 0.3s;
+}
+
+#toggleIcon, #toggleIcon1 {
+	position: absolute;
+	bottom: 10px;
+	right: 8px;
+	z-index: 10;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
 }
 
 input:focus, select:focus {

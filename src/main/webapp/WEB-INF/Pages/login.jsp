@@ -9,6 +9,8 @@
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/global.css" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/login.css" />
+    <script src="https://kit.fontawesome.com/a63c128ded.js"
+	crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -28,8 +30,8 @@
 
       <form action="login" method="POST">
         <input type="text" name="username" placeholder="Enter your username" required />
-        <input type="password" name="password" placeholder="Enter your password" required />
-        
+        <input type="password" name="password" id="loginpass" placeholder="Enter your password" required />
+        <i class="fa fa-eye" id="toggleIcon" onclick="togglePassword('loginpass', 'toggleIcon')"></i>
         <div class="extra-links">
           <a href="forgot-password.html">Forgot password?</a>
         </div>
@@ -43,4 +45,5 @@
     </div>
   </div>
 </body>
+<script type="text/javascript" src="${contextPath}/js/passwordToggle.js"></script>
 </html>

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.FleetX.config.DbConfig;
 import com.FleetX.model.UserModel;
+import com.FleetX.util.PasswordUtil;
 
 public class UserService {
     private Connection dbConnection;
@@ -35,7 +36,7 @@ public class UserService {
                 user.setDob(rSet.getDate("DOB").toString()); 
                 user.setPhone(rSet.getString("Number"));
                 user.setEmail(rSet.getString("Email"));
-                user.setPassword(rSet.getString("Password"));
+                user.setPassword(PasswordUtil.decrypt(rSet.getString("Password"), username) );
             }
         } catch (SQLException e) {
             System.err.println("Error fetching user: " + e.getMessage());
@@ -43,4 +44,26 @@ public class UserService {
 
         return user;
     }
+    
+    public boolean updateUserProfile(UserModel user) {
+        String sql = "UPDATE users SET FirstName=?, LastName=?, DOB=?, Number=?, Password=?, Email=?, role=? WHERE UserName=?";
+        
+        try (PreparedStatement pst = dbConnection.prepareStatement(sql)) {
+            pst.setString(1, user.getFname());
+            pst.setString(2, user.getLname());
+            pst.setString(3, user.getDob());
+            pst.setString(4, user.getPhone());
+            pst.setString(5, user.getPassword());
+            pst.setString(6, user.getEmail());
+            pst.setString(7, user.getRole());
+            pst.setString(8, user.getuName()); // WHERE clause here
+
+            int rows = pst.executeUpdate();
+            return rows > 0;
+        } catch (Exception e) {
+            System.err.println("Error updating profile: " + e.getMessage());
+            return false;
+        }
+    }
+
 }

@@ -11,6 +11,8 @@
 	href="${contextPath}/css/global.css" />
 <link rel="stylesheet" type="text/css"
 	href="${contextPath}/css/register.css" />
+<script src="https://kit.fontawesome.com/a63c128ded.js"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -34,7 +36,7 @@
 				<div class="row">
 					<div class="field-group">
 						<label for="fname">First Name</label> <input type="text"
-							id="fname" name="fname" placeholder="e.g., John"  required />
+							id="fname" name="fname" placeholder="e.g., John" required />
 					</div>
 					<div class="field-group">
 						<label for="lname">Last Name</label> <input type="text" id="lname"
@@ -69,12 +71,13 @@
 					<div class="field-group">
 						<label for="password">Password</label> <input type="password"
 							id="password" name="password" placeholder="Create password"
-							required />
+							required /> <i class="fa fa-eye" id="toggleIcon" onclick="togglePassword('password', 'toggleIcon')"></i>
 					</div>
 					<div class="field-group">
 						<label for="repassword">Re-enter Password</label> <input
 							type="password" id="repassword" name="repassword"
-							placeholder="Confirm password" required />
+							placeholder="Confirm password" required /> <i class="fa fa-eye"
+							id="toggleIcon1" onclick="togglePassword('repassword', 'toggleIcon1')"></i>
 					</div>
 				</div>
 
@@ -82,9 +85,11 @@
 			</form>
 
 			<p>
-				Already have an account? <a href="${contextPath}/login">Login here</a>
+				Already have an account? <a href="${contextPath}/login">Login
+					here</a>
 			</p>
 		</div>
-	</div>
+	</div>             
 </body>
+<script type="text/javascript" src="${contextPath}/js/passwordToggle.js"></script>
 </html>

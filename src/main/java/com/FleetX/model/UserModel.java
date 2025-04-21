@@ -1,6 +1,5 @@
 package com.FleetX.model;
 
-import java.sql.Date;
 
 public class UserModel {
     private int id;
@@ -78,11 +77,11 @@ public class UserModel {
         this.uName = uName;
     }
 
-    public String getDob() {  // Updated getter to return Date
+    public String getDob() {  
         return dob;
     }
 
-    public void setDob(String dob) {  // Updated setter to accept Date
+    public void setDob(String dob) {  
         this.dob = dob;
     }
 
