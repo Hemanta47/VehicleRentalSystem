@@ -42,6 +42,7 @@ public class LoginService {
 		}
 		return false;
 	}
+	
 
 	private boolean validatePassword(ResultSet resultSet, UserModel userModel) throws SQLException {
 		String dbUsername = resultSet.getString("username");

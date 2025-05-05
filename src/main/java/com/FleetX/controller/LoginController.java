@@ -42,15 +42,14 @@ public class LoginController extends HttpServlet {
             String redirectUrl = "/"; // Default redirection URL
             String role = username.equals("admin") ? "admin" : "customer"; // Role logic
 
-            // Set session role and cookie if needed (you can skip cookie if session suffices)
             SessionUtil.setAttribute(request, "role", role);
-            CookieUtil.addCookie(response, "role", role, 5 * 30); // Optional: keep role persistent for 30 days
+            CookieUtil.addCookie(response, "role", role, 5 * 30); 
 
             // Redirect to the appropriate page
             if ("admin".equals(role)) {
-                redirectUrl = "/Dashboard"; // Adjust accordingly
+                redirectUrl = "/Dashboard"; 
             } else {
-                redirectUrl = "/home"; // Adjust accordingly
+                redirectUrl = "/home";
             }
 
             response.sendRedirect(request.getContextPath() + redirectUrl); // Redirect to the correct page

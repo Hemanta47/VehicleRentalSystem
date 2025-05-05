@@ -2,7 +2,8 @@ package com.FleetX.model;
 
 
 public class UserModel {
-    private int id;
+    
+	private int id;
     private String fname;
     private String lname;
     private String uName;
@@ -12,13 +13,24 @@ public class UserModel {
     private String password;
     private String role;
 
-    public UserModel() {
-    }
 
+    public UserModel() {
+		// TODO Auto-generated constructor stub
+	}
     public UserModel(String uName, String password) {
         this.uName = uName;
         this.password = password;
     }
+    
+    
+
+    public UserModel(String fname, String lname, String uName, String email, String phone) {
+		this.fname = fname;
+		this.lname = lname;
+		this.uName = uName;
+		this.email = email;
+		this.phone = phone;
+	}
 
     public UserModel(String fname, String lname, String uName, String dob, String email, String phone,
                      String password, String role) {
