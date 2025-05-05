@@ -1,112 +1,142 @@
-/* Profile Container */
-.profile-container {
-  max-width: 640px;
-  margin: 80px auto;
-  padding: 40px;
-  background-color: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--haze);
+body {
+	font-family: Arial, sans-serif;
+	background-color: var(--white);
 }
 
-.profile-container h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: var(--depth);
-  font-size: 28px;
-  font-weight: 600;
+.container {
+	display: flex;
 }
 
-/* Profile View */
-#profileView p {
-  font-size: 16px;
-  margin-bottom: 12px;
-  color: var(--depth);
+.sidebar {
+	width: 220px;
+	background: var(--gray-900);
+	color: white;
+	padding: 20px;
+	min-height: 100vh;
+	position: relative;
 }
 
-#profileView button {
-  display: block;
-  margin: 24px auto 0;
-  padding: 12px 24px;
-  font-size: 16px;
-  background-color: var(--lagoon);
-  color: var(--white);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.sidebar p {
+	font-size: 1rem;
+	font-weight: 400;
+	cursor: pointer;
+	text-align: left;
+	display: block;
+	margin: 10px 0;
+	width: 100%;
+	padding: 4px 6px;
+	border-radius: 8px;
+	transition: 0.3s al ease;
 }
 
-#profileView button:hover {
-  background-color: #5e97a3;
+.back{
+	color: #286ad7;
+	margin: 0 0 4rem;
+	
 }
 
-/* Edit Form Styling */
-#profileForm {
-  margin-top: 30px;
+.sidebar p:hover{
+	background: var(--gray-700);
 }
 
-#profileForm label {
-  display: block;
-  font-weight: 600;
-  margin: 16px 0 6px;
-  color: var(--depth);
+
+.sidebar h3 {
+	margin-top: 10px;
 }
 
-#profileForm input {
-  width: 100%;
-  padding: 10px 12px;
-  font-size: 15px;
-  background-color: var(--mist);
-  border: 1px solid var(--haze);
-  border-radius: 10px;
-  outline: none;
-  transition: all 0.3s ease;
+.content {
+	flex-grow: 1;
+	background: white;
+	padding: 20px;
+	border-radius: 6px;
+	margin-left: 20px;
 }
 
-#profileForm input:focus {
-  border-color: var(--lagoon);
-  background-color: var(--white);
+.section {
+	display: none;
 }
 
-/* Action Buttons */
-.form-actions {
-  margin-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+.section.active {
+	display: block;
 }
 
-.form-actions button {
-  flex: 1;
-  padding: 12px;
-  font-size: 16px;
-  background-color: var(--lagoon);
-  color: var(--white);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.section h2 {
+	color: var(--gray-900);
 }
 
-.form-actions button:hover {
-  background-color: #5e97a3;
+.section label {
+	display: block;
+	margin-top: 10px;
+	font-weight: bold;
+	color: var(--black);
 }
 
-/* Danger Button (Delete Account) */
+.section input {
+	width: 100%;
+	padding: 8px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.section button {
+	margin-top: 10px;
+	padding: 8px 16px;
+}
+
 .danger-btn {
-  background-color: #e74c3c;
-  color: var(--white);
-  border: none;
-  border-radius: 12px;
-  padding: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 30px;
-  width: 100%;
-  transition: background-color 0.3s ease;
+	background-color: #e30b0b;
+	color: white;
+	border: none;
+	border-radius: 12px;
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 1rem;
+	width: 80%;
+	padding: .5rem;
 }
 
-.danger-btn:hover {
-  background-color: #c0392b;
+#passwordSection input{
+	width: 50%;
+	position: relative;
+}
+
+.success, .error {
+	margin: 10px 0;
+}
+
+.booking-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.booking-table th, .booking-table td {
+	border: 1px solid #ccc;
+	padding: 8px;
+}
+
+.booking-table tr{
+	color: var(--gray-700);
+}
+
+.edit-toggle {
+	float: right;
+}
+
+.popup {
+    background: #d4edda;
+    color: #155724;
+    padding: 1em 2em;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.timestamp{
+	color: var(--gray-700);
 }

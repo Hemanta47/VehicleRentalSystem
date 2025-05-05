@@ -54,7 +54,8 @@
 					<form action="https://formspree.io/f/xjvowzqk" method="POST">
 						<input type="text" name="name" placeholder="Name" required>
 						<input type="email" name="email" placeholder="Email" required>
-						<textarea name="message" placeholder="Message" required></textarea>
+						<input type="text" name="subject" placeholder="Subject" required>
+						<textarea name="message" placeholder="Message..." required></textarea>
 						<button type="submit">Send</button>
 					</form>
 				</div>

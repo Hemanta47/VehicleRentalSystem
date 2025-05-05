@@ -1,87 +1,164 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>User Profile</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/global.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/userprofile.css">
-	<script src="https://kit.fontawesome.com/a63c128ded.js" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<title>User Profile</title>
+<link rel="stylesheet" href="${contextPath}/css/global.css">
+<link rel="stylesheet" href="${contextPath}/css/userprofile.css">
+<script src="https://kit.fontawesome.com/a63c128ded.js"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 
-	<jsp:include page="./component/header.jsp" />
-
-	<div class="profile-container">
-		<h2>User Profile</h2>
-
-		<!-- ✅ Status Message -->
-		<c:if test="${param.status == 'updated'}">
-			<p class="success">✅ Profile updated successfully!</p>
-		</c:if>
-		<c:if test="${param.status == 'failed'}">
-			<p class="error">❌ Failed to update profile. Please try again.</p>
-		</c:if>
-
-		<!-- Static User Details -->
-		<div id="profileView">
-			<p><strong>First Name:</strong> ${user.fname}</p>
-			<p><strong>Last Name:</strong> ${user.lname}</p>
-			<p><strong>Date of Birth:</strong> ${user.dob}</p>
-			<p><strong>Phone:</strong> ${user.phone}</p>
-			<p><strong>Email:</strong> ${user.email}</p>
-			<p><strong>Password:</strong> ********</p>
-
-			<button id="editBtn" onclick="toggle()">Edit</button>
+	<div class="container">
+		<div class="sidebar">
+			<a href="${contextPath}/" class="back">Back to Home</a>
+			<h3>Account</h3>
+			<p onclick="showSection('profileSection')">Profile</p>
+			<p onclick="showSection('passwordSection')">Password</p>
+			<p onclick="showSection('historySection')">Rental History</p>
+			<form method="POST" action="${contextPath}/delete-account"
+				onsubmit="return confirm('Are you sure you want to delete your account?');">
+				<input type="hidden" name="username" value="${user.uName}" />
+				<button class="danger-btn">Delete Account</button>
+			</form>
 		</div>
 
-		<!-- Edit Profile Form -->
-		<form id="profileForm" method="POST"
-			  action="${pageContext.request.contextPath}/userUpdate"
-			  style="display: none;">
+		<div class="content">
+			<!-- Profile Section -->
+			<div id="profileSection" class="section active">
+				<h2>
+					Profile Info
+					<button class="edit-toggle" onclick="toggleEdit('profile')">Edit</button>
+				</h2>
+				<form id="profileForm" method="POST"
+					action="${contextPath}/userUpdate">
+					<input type="hidden" name="username" value="${user.uName}" /> <input
+						type="hidden" name="role" value="${user.role}" /> <label>First
+						Name:</label> <input type="text" name="fname" value="${user.fname}"
+						disabled required /> <label>Last Name:</label> <input type="text"
+						name="lname" value="${user.lname}" disabled required /> <label>Email:</label>
+					<input type="email" name="email" value="${user.email}" disabled
+						required /> <label>Phone:</label> <input type="text" name="phone"
+						value="${user.phone}" disabled required />
+					<button type="submit" id="saveProfile" style="display: none;">Save</button>
+				</form>
+				<c:if test="${status == 'updated'}">
+					<div id="popup" class="popup">
+						User Info successfully updated!
+						<button onclick="closePopup('popup')">OK</button>
+					</div>
+				</c:if>
+			</div>
 
-			<!-- ✅ Hidden Fields -->
-			<input type="hidden" name="username" value="${user.uName}" />
-			<input type="hidden" name="role" value="${user.role}" />
+			<!-- Password Section -->
+			<div id="passwordSection" class="section">
+				<h2>
+					Password
+					<button class="edit-toggle" onclick="toggleEdit('password')">Edit</button>
+				</h2>
 
-			<label>First Name:</label>
-			<input type="text" name="fname" value="${user.fname}" required />
+				<!-- Entire form hidden initially -->
+				<form id="passwordForm" method="POST"
+					action="${contextPath}/updatePassword" style="display: none;">
+					<input type="hidden" name="username" value="${user.uName}" /> <label>Old
+						Password:</label>
+					<div class="password-wrapper">
+						<input type="password" name="oldPassword" id="oldPassword" /> <i
+							class="fa fa-eye" id="toggleIcon1"
+							onclick="togglePassword('oldPassword', 'toggleIcon1')"
+							style="color: var(--gray-900)"></i>
+					</div>
 
-			<label>Last Name:</label>
-			<input type="text" name="lname" value="${user.lname}" required />
+					<label>New Password:</label>
+					<div class="password-wrapper">
+						<input type="password" name="newPassword" id="newPassword" /> <i
+							class="fa fa-eye" id="toggleIcon2"
+							onclick="togglePassword('newPassword', 'toggleIcon2')"
+							style="color: var(--gray-900)"></i>
+					</div>
 
-			<label>Date of Birth:</label>
-			<input type="date" name="dob" value="${user.dob}" required />
+					<button type="submit" id="savePassword">Save</button>
+				</form>
+				<c:if test="${passwordStatus == 'success'}">
+					<div id="popup1" class="popup">
+						Password successfully updated!
+						<button onclick="closePopup('popup1')">OK</button>
+					</div>
+				</c:if>
 
-			<label>Phone:</label>
-			<input type="text" name="phone" value="${user.phone}" required />
+				<c:if test="${not empty sessionScope.passwordUpdatedAt}">
+					<p class="timestamp">
+						Last updated:
+						<fmt:formatDate value="${sessionScope.passwordUpdatedAt}"
+							pattern="yyyy-MM-dd HH:mm:ss" />
+					</p>
+				</c:if>
 
-			<label>Email:</label>
-			<input type="email" name="email" value="${user.email}" required />
+			</div>
 
-			<label>Password:</label>
-			<input type="password" name="password" value="${user.password}" required />
 
-			<button type="submit">Update</button>
-		</form>
-
-		<!-- Delete Account -->
-		<form method="POST"
-			  action="${pageContext.request.contextPath}/delete-account"
-			  onsubmit="return confirm('Are you sure you want to delete your account?');">
-			<input type="hidden" name="username" value="${user.uName}" />
-			<button type="submit" class="danger-btn">Delete Account</button>
-		</form>
+			<!-- Rental History Section -->
+			<div id="historySection" class="section">
+				<h2>Rental History</h2>
+				<table class="booking-table">
+					<thead>
+						<tr>
+							<th>Booking ID</th>
+							<th>Vehicle Name</th>
+							<th>Amount</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>101</td>
+							<td>Honda Civic</td>
+							<td>$200</td>
+							<td>Confirmed</td>
+						</tr>
+						<tr>
+							<td>102</td>
+							<td>Ford Mustang</td>
+							<td>$450</td>
+							<td>Cancelled</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 
 	<script>
-		const profileForm = document.querySelector("#profileForm");
-		function toggle() {
-			profileForm.style.display = profileForm.style.display === "none" ? "block" : "none";
-		}
-	</script>
+    function showSection(id) {
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+    function toggleEdit(section) {
+        if (section === 'profile') {
+            const inputs = document.querySelectorAll('#profileForm input:not([type=hidden])');
+            const saveBtn = document.getElementById('saveProfile');
+            inputs.forEach(inp => inp.disabled = false);
+            saveBtn.style.display = 'inline-block';
+            document.querySelector('#profileSection .edit-toggle').style.display = 'none';
+        } else if (section === 'password') {
+            const passwordForm = document.getElementById('passwordForm');
+            passwordForm.style.display = 'block';
+            document.querySelector('#passwordSection .edit-toggle').style.display = 'none';
+        }
+    }
+    
+    function closePopup(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+    </script>
+	<script type="text/javascript"
+		src="${contextPath}/js/passwordToggle.js"></script>
 </body>
 </html>

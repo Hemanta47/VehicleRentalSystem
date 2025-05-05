@@ -1,8 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <footer>
         <div class="footer-links">
             <div class="about-company">
                 <h3>About FleetX</h3>
-                <p>FleetX is a leading vehicle rental service provider, offering a wide range of vehicles for all
+                <p>FleetX is a leading vehicle rental service provider, offering a wide range of vehicles for
+                    all
                     your
                     travel needs.</p>
             </div>
@@ -17,26 +20,30 @@
             <div class="quick-links">
                 <h3>Quick Links</h3>
                 <ul class="quick-links_list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Vehicle</a></li>
-                    <li><a href="#">Contact</a></li>
+                <li><a href="${contextPath}/">Home</a></li>
+			<li><a href="${contextPath}/about">About</a></li>
+			<li><a href="${contextPath}/vehicle">Vehicle</a></li>
+			<li><a href="${contextPath}/contact">Contact</a></li>
                 </ul>
             </div>
             <div class="social-media">
                 <h3>Follow Us</h3>
                 <ul class="social-media_list">
-                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    </li>
+                    <li><a href="https://x.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 FleetX. All rights reserved.</p>
+            <p>&copy; 2025 FleetX. All rights reserved.</p>
             <div class="other-links">
-                <a href="./terms.html">Terms & Conditions</a>
-                <a href="#">Privacy Policy</a>
+                <a href="./Terms.html">Terms & Conditions</a>
+                <a href="./Privacy.html">Privacy Policy</a>
             </div>
+         </div>   
     </footer>

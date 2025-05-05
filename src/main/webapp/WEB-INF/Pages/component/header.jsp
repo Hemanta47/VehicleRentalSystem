@@ -23,6 +23,9 @@
 					<a href="${contextPath}/userprofile"> <i class="fa-solid fa-user"></i></a>
 					 <span>${sessionScope.username}</span>
 			    </div>
+			    <a class="cart" href="${contextPath}/cart">
+			    <i class="fa-solid fa-cart-shopping"></i>0
+			    </a>
 			    <form action="${contextPath}/logout" method="post">
 							<input type="submit" class="nav-button" value="Logout" />
 				</form>

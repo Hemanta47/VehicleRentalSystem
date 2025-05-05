@@ -1,6 +1,6 @@
 footer {
-    background-color: var(--depth);
-    color: var(--mist);
+    background-color: var(--black);
+    color: var(--white);
     padding-top: 2rem;
 }
 
@@ -14,7 +14,7 @@ footer {
 .footer-links h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: var(--breeze);
+    color: var(--gray-300);
 }
 
 .footer-links p,
@@ -27,8 +27,13 @@ footer {
     margin-right: 10px;
 }
 
-.quick-links_list li a{
+.quick-links_list li a {
     color: var(--white);
+    transition: color 0.3s;
+}
+
+.quick-links_list li a:hover {
+    color: var(--gray-300);
 }
 
 .social-media_list {
@@ -38,16 +43,16 @@ footer {
 
 .social-media_list li a {
     font-size: 1.5rem;
-    color: var(--mist);
+    color: var(--gray-200);
     transition: color 0.3s;
 }
 
 .social-media_list li a:hover {
-    color: var(--breeze);
+    color: var(--gray-300);
 }
 
 .footer-bottom {
-    border-top: 1px solid #444;
+    border-top: 1px solid var(--gray-700);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,10 +67,10 @@ footer {
 }
 
 .other-links a {
-    color: var(--haze);
+    color: var(--gray-300);
     transition: color 0.3s;
 }
 
 .other-links a:hover {
-    color: var(--breeze);
+    color: var(--white);
 }

@@ -1,23 +1,20 @@
 body {
 	font-family: 'Segoe UI', sans-serif;
-	background-color: var(--mist);
-	color: var(--depth);
+	background-color: var(--gray-900);
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
 
 header {
-	background: linear-gradient(135deg, var(--lagoon), var(--depth));
-	padding: 1.5rem 2rem;
+	padding: 1rem 2rem;
 	text-align: center;
-	font-size: 2rem;
+	font-size: 3rem;
 	font-weight: bold;
 }
 
 header a {
 	color: white;
-	text-decoration: none;
 	transition: opacity 0.2s ease;
 }
 
@@ -35,7 +32,7 @@ header a:hover {
 
 .form-container {
 	background-color: #ffffff;
-	padding: 2.5rem;
+	padding: 2rem;
 	border-radius: 16px;
 	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 	width: 100%;
@@ -47,7 +44,7 @@ header a:hover {
 	text-align: center;
 	margin-bottom: 2rem;
 	font-size: 1.8rem;
-	color: var(--depth);
+	color: var(--black);
 }
 
 form {
@@ -78,10 +75,10 @@ label {
 input, select {
 	padding: 0.7rem 0.9rem;
 	border-radius: 10px;
-	border: 2px solid var(--haze);
+	border: 2px solid var(--gray-300);
 	outline: none;
 	background-color: #fdfdfd;
-	color: var(--depth);
+	color: var(--gray-700);
 	font-size: 1rem;
 	transition: border-color 0.3s;
 }
@@ -93,14 +90,15 @@ input, select {
 	z-index: 10;
 	transform: translate(-50%, -50%);
 	cursor: pointer;
+	color: var(--gray-900);
 }
 
 input:focus, select:focus {
-	border-color: var(--lagoon);
+	border-color: var(--gray-700);
 }
 
 input[type="submit"] {
-	background-color: var(--depth);
+	background-color: var(--gray-900);
 	color: #fff;
 	font-weight: bold;
 	cursor: pointer;
@@ -112,7 +110,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-	background-color: #0d3648;
+	background-color: var(--black);
 	transform: scale(1.03);
 }
 
@@ -124,11 +122,7 @@ p {
 }
 
 a {
-	color: var(--lagoon);
+	color: var(--gray-700);
 	text-decoration: none;
 	font-weight: 600;
-}
-
-a:hover {
-	text-decoration: underline;
 }

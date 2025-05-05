@@ -1,6 +1,6 @@
 body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	background-color: var(--mist);
+	background-color: var(--gray-900);
 	min-height: 100vh;
 	margin: 0;
 	display: flex;
@@ -8,10 +8,9 @@ body {
 }
 
 header {
-	background: linear-gradient(135deg, var(--lagoon), var(--depth));
 	padding: 1.5rem 2rem;
 	text-align: center;
-	font-size: 1.8rem;
+	font-size: 3rem;
 	font-weight: bold;
 }
 
@@ -45,7 +44,7 @@ header a:hover {
 
 .form-container h2 {
 	text-align: center;
-	color: var(--depth);
+	color: var(--black);
 	margin-bottom: 1.8rem;
 	font-size: 1.7rem;
 }
@@ -56,23 +55,23 @@ form {
 	position: relative;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"] {
 	padding: 0.9rem 1rem;
 	margin-bottom: 1.2rem;
-	border: 2px solid var(--haze);
+	border: 2px solid var(--gray-300);
 	border-radius: 10px;
 	font-size: 1rem;
 	transition: border-color 0.3s;
 }
 
 input:focus {
-	border-color: var(--lagoon);
+	border-color: var(--gray-700);
 	outline: none;
 }
 
 input[type="submit"] {
 	padding: 0.9rem;
-	background-color: var(--depth);
+	background-color: var(--gray-900);
 	color: #fff;
 	border: none;
 	border-radius: 10px;
@@ -83,7 +82,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-	background-color: #0d3648;
+	background-color: var(--black);
 	transform: scale(1.03);
 }
 
@@ -91,11 +90,11 @@ input[type="submit"]:hover {
 	text-align: center;
 	margin-top: 1.5rem;
 	font-size: 0.95rem;
-	color: #444;
+	color: var(--black);
 }
 
 .form-footer a {
-	color: var(--lagoon);
+	color: var(--gray-700);
 	text-decoration: none;
 	font-weight: 600;
 }
@@ -112,7 +111,7 @@ input[type="submit"]:hover {
 }
 
 .extra-links a {
-	color: var(--drift);
+	color: var(--gray-700);
 }
 
 .error-message {
@@ -128,5 +127,36 @@ input[type="submit"]:hover {
   bottom: 53.5%;
   transform: translate(-50%,-50%);
   right: 0;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--gray-700);
+  color: var(--black);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.modal-content .close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
   cursor: pointer;
 }
